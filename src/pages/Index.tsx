@@ -73,8 +73,7 @@ const Index = () => {
               <div className="text-center space-y-4">
                 <h3 className="text-xl font-bold">Sortear Jogadores Medianos</h3>
                 <p className="text-muted-foreground">
-                  Distribua jogadores medianos (≤82) randomicamente para completar os times até 30
-                  jogadores. Times com 30 jogadores já completos não participarão do sorteio.
+                  Distribua jogadores medianos (≤82) randomicamente para completar os times com 11 titulares e 7 reservas (total: 18 jogadores). Times que já tenham essa formação completa não participarão do sorteio.
                 </p>
                 <Button
                   onClick={handleDistributePlayers}

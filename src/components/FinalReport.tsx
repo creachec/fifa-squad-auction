@@ -183,6 +183,7 @@ export default function FinalReport({ teams, onReset }: FinalReportProps) {
                               {p.player.position}
                             </Badge>
                             <span>{p.player.name}</span>
+                            <span className="text-muted-foreground text-xs">({p.player.team})</span>
                           </div>
                           <div className="flex items-center gap-2">
                             <span className="text-primary">{p.player.rating}</span>
@@ -202,10 +203,11 @@ export default function FinalReport({ teams, onReset }: FinalReportProps) {
                               {p.player.position}
                             </Badge>
                             <span>{p.player.name}</span>
+                            <span className="text-muted-foreground text-xs">({p.player.team})</span>
                           </div>
                           <div className="flex items-center gap-2">
                             <span className="text-primary">{p.player.rating}</span>
-                            <span className="text-secondary">GRÁTIS</span>
+                            <span className="text-secondary">{p.pricePaid === 0 ? 'GRÁTIS' : `$${p.pricePaid}`}</span>
                           </div>
                         </div>
                       ))}

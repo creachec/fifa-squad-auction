@@ -46,7 +46,7 @@ export const FORMATION_REQUIREMENTS = {
   ST: 2,
 };
 
-export const MIN_SUBSTITUTES = 5;
+export const MIN_SUBSTITUTES = 7;
 
-export const MAX_PLAYERS_PER_TEAM = 30;
+export const MAX_PLAYERS_PER_TEAM = 18;
 
