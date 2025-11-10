@@ -1,9 +1,10 @@
-import { Team } from '@/types/auction';
+import { Team, MAX_PLAYERS_PER_TEAM } from '@/types/auction';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Trophy, DollarSign, TrendingUp, Users, Download } from 'lucide-react';
+import { Trophy, DollarSign, TrendingUp, Users, Download, FileText } from 'lucide-react';
+import { exportToPDF } from '@/utils/pdfExport';
 
 interface FinalReportProps {
   teams: Team[];
@@ -23,6 +24,10 @@ export default function FinalReport({ teams, onReset }: FinalReportProps) {
       .slice(0, 3);
 
     return { totalSpent, avgPrice, avgRating, top3 };
+  };
+
+  const handleExportPDF = () => {
+    exportToPDF(teams);
   };
 
   const exportReport = () => {
@@ -60,9 +65,13 @@ export default function FinalReport({ teams, onReset }: FinalReportProps) {
             Relatório Final
           </h1>
           <div className="flex gap-4 justify-center">
-            <Button onClick={exportReport} variant="outline" className="border-primary text-primary">
+            <Button onClick={handleExportPDF} className="bg-gradient-primary">
               <Download className="h-4 w-4 mr-2" />
-              Exportar Relatório
+              Exportar PDF
+            </Button>
+            <Button onClick={exportReport} variant="outline" className="border-primary text-primary">
+              <FileText className="h-4 w-4 mr-2" />
+              Exportar TXT
             </Button>
             <Button onClick={onReset} className="bg-gradient-secondary">
               Novo Leilão
@@ -75,6 +84,7 @@ export default function FinalReport({ teams, onReset }: FinalReportProps) {
             const stats = getTeamStats(team);
             const starters = team.players.filter((p) => p.isStarter);
             const subs = team.players.filter((p) => !p.isStarter);
+            const isComplete = team.players.length >= MAX_PLAYERS_PER_TEAM;
 
             return (
               <Card
@@ -84,9 +94,16 @@ export default function FinalReport({ teams, onReset }: FinalReportProps) {
               >
                 <div className="space-y-6">
                   <div className="flex items-center justify-between">
-                    <h2 className="text-2xl font-bold" style={{ color: team.color }}>
-                      {team.name}
-                    </h2>
+                    <div>
+                      <h2 className="text-2xl font-bold" style={{ color: team.color }}>
+                        {team.name}
+                      </h2>
+                      {isComplete && (
+                        <Badge className="mt-1 bg-gradient-secondary text-secondary-foreground">
+                          Time Completo
+                        </Badge>
+                      )}
+                    </div>
                     <Trophy className="h-6 w-6" style={{ color: team.color }} />
                   </div>
 

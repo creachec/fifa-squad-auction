@@ -47,3 +47,6 @@ export const FORMATION_REQUIREMENTS = {
 };
 
 export const MIN_SUBSTITUTES = 5;
+
+export const MAX_PLAYERS_PER_TEAM = 30;
+

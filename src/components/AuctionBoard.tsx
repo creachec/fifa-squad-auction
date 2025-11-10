@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { Player, Team, AuctionState, POSITIONS_ORDER } from '@/types/auction';
 import { ChevronRight, SkipForward, Undo2 } from 'lucide-react';
 import { toast } from 'sonner';
@@ -18,6 +20,8 @@ export default function AuctionBoard({ players, teams, onUpdate, onFinish }: Auc
   const [currentPlayerIndex, setCurrentPlayerIndex] = useState(0);
   const [auctionHistory, setAuctionHistory] = useState<any[]>([]);
   const [localTeams, setLocalTeams] = useState(teams);
+  const [bidAmounts, setBidAmounts] = useState<Record<string, number>>({});
+
 
   const currentPosition = POSITIONS_ORDER[currentPositionIndex];
   const positionPlayers = players.filter(
@@ -29,9 +33,16 @@ export default function AuctionBoard({ players, teams, onUpdate, onFinish }: Auc
     const team = localTeams.find((t) => t.id === teamId);
     if (!team || !currentPlayer) return;
 
-    const price = currentPlayer.minPrice;
+    // Use custom bid amount if provided, otherwise use minimum price
+    const bidAmount = bidAmounts[teamId] ?? currentPlayer.minPrice;
     
-    if (team.budget < price && price > 0) {
+    // Validate bid amount
+    if (bidAmount < currentPlayer.minPrice) {
+      toast.error(`Lance mínimo é $${currentPlayer.minPrice}!`);
+      return;
+    }
+
+    if (team.budget < bidAmount && bidAmount > 0) {
       toast.error(`${team.name} não tem orçamento suficiente!`);
       return;
     }
@@ -40,8 +51,8 @@ export default function AuctionBoard({ players, teams, onUpdate, onFinish }: Auc
       if (t.id === teamId) {
         return {
           ...t,
-          budget: t.budget - price,
-          players: [...t.players, { player: currentPlayer, pricePaid: price, isStarter: true }],
+          budget: t.budget - bidAmount,
+          players: [...t.players, { player: currentPlayer, pricePaid: bidAmount, isStarter: true }],
         };
       }
       return t;
@@ -50,16 +61,18 @@ export default function AuctionBoard({ players, teams, onUpdate, onFinish }: Auc
     const historyEntry = {
       player: currentPlayer,
       team,
-      pricePaid: price,
+      pricePaid: bidAmount,
       timestamp: Date.now(),
     };
 
     setLocalTeams(newTeams);
     setAuctionHistory([...auctionHistory, historyEntry]);
-    toast.success(`${currentPlayer.name} → ${team.name} por ${price > 0 ? `$${price}` : 'GRÁTIS'}`);
+    setBidAmounts({}); // Reset bid amounts
+    toast.success(`${currentPlayer.name} → ${team.name} por ${bidAmount > 0 ? `$${bidAmount}` : 'GRÁTIS'}`);
     
     nextPlayer();
   };
+
 
   const nextPlayer = () => {
     if (currentPlayerIndex < positionPlayers.length - 1) {
@@ -198,38 +211,63 @@ export default function AuctionBoard({ players, teams, onUpdate, onFinish }: Auc
 
         {/* Teams Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {localTeams.map((team) => (
-            <Card
-              key={team.id}
-              className="p-6 bg-card border-border hover:shadow-glow transition-shadow"
-              style={{ borderColor: team.color }}
-            >
-              <div className="space-y-4">
-                <div>
-                  <h3 className="font-bold text-lg" style={{ color: team.color }}>
-                    {team.name}
-                  </h3>
-                  <p className="text-sm text-muted-foreground">
-                    Orçamento: ${team.budget}
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    Jogadores: {team.players.length}
-                  </p>
+          {localTeams.map((team) => {
+            const bidAmount = bidAmounts[team.id] ?? currentPlayer.minPrice;
+            const canAfford = team.budget >= bidAmount;
+            
+            return (
+              <Card
+                key={team.id}
+                className="p-6 bg-card border-border hover:shadow-glow transition-shadow"
+                style={{ borderColor: team.color }}
+              >
+                <div className="space-y-4">
+                  <div>
+                    <h3 className="font-bold text-lg" style={{ color: team.color }}>
+                      {team.name}
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      Orçamento: ${team.budget}
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      Jogadores: {team.players.length}
+                    </p>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <Label className="text-xs text-muted-foreground">
+                      Valor do Lance (Min: ${currentPlayer.minPrice})
+                    </Label>
+                    <Input
+                      type="number"
+                      min={currentPlayer.minPrice}
+                      value={bidAmount}
+                      onChange={(e) =>
+                        setBidAmounts({
+                          ...bidAmounts,
+                          [team.id]: parseInt(e.target.value) || currentPlayer.minPrice,
+                        })
+                      }
+                      className="bg-muted border-border"
+                      placeholder={currentPlayer.minPrice.toString()}
+                    />
+                  </div>
+
+                  <Button
+                    onClick={() => assignPlayer(team.id)}
+                    disabled={!canAfford || bidAmount < currentPlayer.minPrice}
+                    className="w-full"
+                    style={{
+                      backgroundColor: canAfford ? team.color : undefined,
+                      color: canAfford ? '#0A0F1C' : undefined,
+                    }}
+                  >
+                    {canAfford ? `Lance: $${bidAmount}` : 'Sem Orçamento'}
+                  </Button>
                 </div>
-                <Button
-                  onClick={() => assignPlayer(team.id)}
-                  disabled={team.budget < currentPlayer.minPrice && currentPlayer.minPrice > 0}
-                  className="w-full"
-                  style={{
-                    backgroundColor: team.color,
-                    color: '#0A0F1C',
-                  }}
-                >
-                  Adicionar
-                </Button>
-              </div>
-            </Card>
-          ))}
+              </Card>
+            );
+          })}
         </div>
 
         {/* Controls */}
