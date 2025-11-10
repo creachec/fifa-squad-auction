@@ -1,0 +1,121 @@
+Posição,Nome,Time,Rating,Preço_Mínimo,Tipo
+ST,Kylian Mbappé,Real Madrid,91,120,Elite
+ST,Ousmane Dembélé,PSG,90,100,Elite
+ST,Erling Haaland,Manchester City,90,95,Elite
+ST,Harry Kane,Bayern Munich,89,80,Elite
+ST,Robert Lewandowski,Barcelona,88,70,Elite
+ST,Lautaro Martínez,Inter Milan,88,68,Elite
+ST,Alexander Isak,Liverpool,88,66,Elite
+ST,Serhou Guirassy,Borussia Dortmund,87,58,Elite
+ST,Julián Álvarez,Atlético Madrid,87,55,Elite
+ST,Viktor Gyökeres,Sporting,87,52,Elite
+ST,Jonathan David,Lille,82,0,Mediano
+ST,Arkadiusz Milik,Juventus,82,0,Mediano
+ST,Sébastien Haller,Borussia Dortmund,81,0,Mediano
+ST,Andrea Belotti,Fiorentina,80,0,Mediano
+ST,Evanilson,FC Porto,79,0,Mediano
+LW,Vinícius Júnior,Real Madrid,89,85,Elite
+LW,Mohamed Salah,Liverpool,91,110,Elite
+LW,Khvicha Kvaratskhelia,PSG,87,75,Elite
+LW,Heung Min Son,Tottenham,85,62,Elite
+LW,Rafael Leão,AC Milan,84,58,Elite
+LW,Bradley Barcola,PSG,84,56,Elite
+LW,Anthony Gordon,Newcastle,83,48,Elite
+LW,Ferran Torres,Barcelona,83,46,Elite
+LW,Leandro Trossard,Arsenal,83,44,Elite
+LW,Bukayo Saka,Arsenal,88,75,Elite
+LW,Yannick Carrasco,Atlético Madrid,81,0,Mediano
+LW,Gabriel Martinelli,Arsenal,81,0,Mediano
+LW,Harvey Barnes,Newcastle,80,0,Mediano
+LW,Armand Laurienté,Sassuolo,80,0,Mediano
+LW,Christian Pulisic,AC Milan,79,0,Mediano
+RW,Lamine Yamal,Barcelona,89,85,Elite
+RW,Michael Olise,Bayern Munich,86,68,Elite
+RW,Lionel Messi,Inter Miami,86,66,Elite
+RW,Bryan Mbeumo,Brentford,85,60,Elite
+RW,Désiré Doué,PSG,85,58,Elite
+RW,Phil Foden,Manchester City,85,56,Elite
+RW,Rodrygo,Real Madrid,85,54,Elite
+RW,Nico Williams,Athletic Bilbao,84,50,Elite
+RW,Kingsley Coman,Bayern Munich,84,45,Elite
+RW,Luis Díaz,Liverpool,84,42,Elite
+RW,Facundo Buonanotte,Brighton,82,0,Mediano
+RW,Amad Diallo,Manchester United,81,0,Mediano
+RW,Oscar Gloukh,RB Salzburg,80,0,Mediano
+RW,Ángel Di María,Benfica,79,0,Mediano
+RW,Tete,Galatasaray,78,0,Mediano
+CM,Rodri,Manchester City,91,110,Elite
+CM,Vitinha,PSG,89,90,Elite
+CM,Pedri,Barcelona,89,88,Elite
+CM,Joshua Kimmich,Bayern Munich,89,86,Elite
+CM,Federico Valverde,Real Madrid,88,75,Elite
+CM,Kevin De Bruyne,Manchester City,87,65,Elite
+CM,Declan Rice,Arsenal,87,63,Elite
+CM,Moisés Caicedo,Chelsea,87,61,Elite
+CM,Aurélien Tchouaméni,Real Madrid,86,58,Elite
+CM,Graeme Souness,Liverpool,86,56,Elite
+CM,Benoit Badiashile,Chelsea,82,0,Mediano
+CM,Davide Frattesi,Inter Milan,82,0,Mediano
+CM,Sander Berge,Fulham,81,0,Mediano
+CM,Youri Tielemans,Aston Villa,81,0,Mediano
+CM,Wilfried Ndidi,Leicester,80,0,Mediano
+LB,Nuno Mendes,PSG,86,60,Elite
+LB,Joško Gvardiol,Manchester City,84,48,Elite
+LB,Alphonso Davies,Bayern Munich,84,46,Elite
+LB,Theo Hernández,AC Milan,84,44,Elite
+LB,Federico Dimarco,Inter Milan,85,52,Elite
+LB,Tyreek Wilson,Liverpool,83,42,Elite
+LB,Romain Faivre,Brest,83,40,Elite
+LB,Sérgio Conceição,Juventus,82,35,Elite
+LB,Pervis Estupiñán,Brighton,82,33,Elite
+LB,David Raum,RB Leipzig,82,31,Elite
+LB,Marc Cucurella,Chelsea,81,0,Mediano
+LB,Destiny Udogie,Tottenham,80,0,Mediano
+LB,Alejandro Balde,Barcelona,81,0,Mediano
+LB,Ferland Mendy,Real Madrid,81,0,Mediano
+LB,Ola Aina,Nottingham,79,0,Mediano
+RB,Achraf Hakimi,PSG,89,80,Elite
+RB,Jules Koundé,Barcelona,87,70,Elite
+RB,Trent Alexander-Arnold,Real Madrid,86,60,Elite
+RB,Dani Carvajal,Real Madrid,85,50,Elite
+RB,Reece James,Chelsea,84,46,Elite
+RB,Kalvin Phillips,Manchester City,83,42,Elite
+RB,Jeremie Freuler,Atalanta,83,40,Elite
+RB,Giovanni Di Lorenzo,Napoli,82,36,Elite
+RB,Benjamin White,Arsenal,83,44,Elite
+RB,João Cancelo,Al Hilal,84,48,Elite
+RB,Marcos Llorente,Real Madrid,81,0,Mediano
+RB,Aaron Wan-Bissaka,Manchester United,80,0,Mediano
+RB,Max Aarons,Bournemouth,80,0,Mediano
+RB,Fabio Vigorito,Como,78,0,Mediano
+RB,Emiliano Martínez,Aston Villa,77,0,Mediano
+CB,Virgil van Dijk,Liverpool,90,95,Elite
+CB,Gabriel Magalhães,Arsenal,88,85,Elite
+CB,Alessandro Bastoni,Inter Milan,87,75,Elite
+CB,Marquinhos,PSG,87,73,Elite
+CB,William Saliba,Arsenal,87,71,Elite
+CB,Jonathan Tah,Bayern Munich,87,69,Elite
+CB,Antonio Rüdiger,Real Madrid,86,65,Elite
+CB,Rúben Dias,Manchester City,86,63,Elite
+CB,Willian Pacho,PSG,86,61,Elite
+CB,Ibrahima Konaté,Liverpool,86,59,Elite
+CB,Dayot Upamecano,Bayern Munich,82,0,Mediano
+CB,Danilo,Juventus,81,0,Mediano
+CB,Malick Tillman,PSV,81,0,Mediano
+CB,Sergio Gomez,Villarreal,80,0,Mediano
+CB,Lisandro Martínez,Manchester United,80,0,Mediano
+GK,Gianluigi Donnarumma,Manchester City,89,40,Elite
+GK,Alisson,Liverpool,89,38,Elite
+GK,Thibaut Courtois,Real Madrid,89,36,Elite
+GK,Jan Oblak,Atlético Madrid,88,32,Elite
+GK,David Raya,Arsenal,87,28,Elite
+GK,Mike Maignan,AC Milan,87,26,Elite
+GK,Yann Sommer,Inter Milan,87,24,Elite
+GK,Gregor Kobel,Borussia Dortmund,86,22,Elite
+GK,Stefan Ortega,Manchester City,86,20,Elite
+GK,Éderson,Manchester City,86,18,Elite
+GK,Rui Silva,Al-Ain,81,0,Mediano
+GK,De Gea,Fiorentina,85,0,Mediano
+GK,Villarreal CF,Villarreal,80,0,Mediano
+GK,Sergio Herrera,Osasuna,79,0,Mediano
+GK,Matej Kovar,Manchester United,78,0,Mediano
