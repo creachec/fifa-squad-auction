@@ -7,6 +7,7 @@ import { Label } from '@/components/ui/label';
 import { Player, Team, AuctionState, POSITIONS_ORDER } from '@/types/auction';
 import { ChevronRight, SkipForward, Undo2 } from 'lucide-react';
 import { toast } from 'sonner';
+import AuctionStats from '@/components/AuctionStats';
 
 interface AuctionBoardProps {
   players: Player[];
@@ -163,13 +164,36 @@ export default function AuctionBoard({ players, teams, onUpdate, onFinish }: Auc
     );
   }
 
+  const elitePlayers = players.filter((p) => p.type === 'Elite');
+
+  const auctionedPlayersCount =
+    POSITIONS_ORDER.slice(0, currentPositionIndex).reduce(
+      (count, position) =>
+        count +
+        players.filter((p) => p.position === position && p.type === 'Elite')
+          .length,
+      0
+    ) + currentPlayerIndex;
+
   return (
     <div className="min-h-screen bg-gradient-dark p-8">
-      <div className="max-w-7xl mx-auto space-y-8">
-        {/* Position Progress */}
-        <div className="flex gap-2 justify-center flex-wrap">
-          {POSITIONS_ORDER.map((pos, idx) => (
-            <Badge
+      <div className="grid lg:grid-cols-4 gap-8 max-w-screen-2xl mx-auto">
+        {/* Stats Sidebar */}
+        <div className="lg:col-span-1">
+          <AuctionStats
+            teams={localTeams}
+            history={auctionHistory}
+            totalPlayers={elitePlayers.length}
+            currentPlayerCount={auctionedPlayersCount}
+          />
+        </div>
+
+        {/* Main Auction Area */}
+        <div className="lg:col-span-3 space-y-8">
+          {/* Position Progress */}
+          <div className="flex gap-2 justify-center flex-wrap">
+            {POSITIONS_ORDER.map((pos, idx) => (
+              <Badge
               key={pos}
               variant={idx === currentPositionIndex ? 'default' : 'outline'}
               className={
@@ -289,6 +313,7 @@ export default function AuctionBoard({ players, teams, onUpdate, onFinish }: Auc
             <SkipForward className="h-4 w-4 mr-2" />
             Próxima Posição
           </Button>
+        </div>
         </div>
       </div>
     </div>
