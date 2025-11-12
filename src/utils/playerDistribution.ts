@@ -34,23 +34,25 @@ export function distributeMedianoPlayers(teams: Team[], allPlayers: Player[]): T
 
     const assignedPlayers: Array<{ player: Player; isStarter: boolean }> = [];
 
-    // Step 1: Complete missing starters based on FORMATION_REQUIREMENTS
-    Object.entries(FORMATION_REQUIREMENTS).forEach(([position, required]) => {
-      const currentCount = starters.filter((p) => p.player.position === position).length;
-      const needed = required - currentCount;
-      
-      for (let i = 0; i < needed; i++) {
-        if (playersByPosition[position]?.length > 0) {
-          const player = playersByPosition[position].pop();
-          if (player) {
-            assignedPlayers.push({ player, isStarter: true });
+    // Step 1: Complete missing starters based on FORMATION_REQUIREMENTS (only if less than 11 starters)
+    if (starters.length < 11) {
+      Object.entries(FORMATION_REQUIREMENTS).forEach(([position, required]) => {
+        const currentCount = starters.filter((p) => p.player.position === position).length;
+        const needed = required - currentCount;
+        
+        for (let i = 0; i < needed; i++) {
+          if (playersByPosition[position]?.length > 0) {
+            const player = playersByPosition[position].pop();
+            if (player) {
+              assignedPlayers.push({ player, isStarter: true });
+            }
           }
         }
-      }
-    });
+      });
+    }
 
     // Step 2: Add reserves following RESERVE_REQUIREMENTS (1 per position type)
-    // Track which reserve positions we already have
+    // Always add to reserves when team has 11+ starters
     const currentReserves = reserves.map(r => r.player);
 
     RESERVE_REQUIREMENTS.forEach((positionRequirement) => {
