@@ -14,7 +14,11 @@ ST,Ollie Watkins,Aston Villa,86,48,Elite
 ST,Christopher Nkunku,Chelsea,86,46,Elite
 ST,Victor Osimhen,Galatasaray,86,44,Elite
 ST,Darwin Núñez,Liverpool,85,42,Elite
-ST,Jonathan David,Lille,82,0,Mediano
+ST,Jonathan David,Juventus,82,0,Mediano
+ST,Oyarzabal,Real Sociedad,82,0,Mediano
+ST,Jean-Philippe Mateta,Crystal Palace,82,0,Mediano
+ST,Yoane Wissa,Newcastle Utd,82,0,Mediano
+ST,Dušan Vlahović,Juventus,82,0,Mediano
 ST,Arkadiusz Milik,Juventus,82,0,Mediano
 ST,Sébastien Haller,Borussia Dortmund,81,0,Mediano
 ST,Andrea Belotti,Fiorentina,80,0,Mediano
@@ -33,6 +37,8 @@ LW,Raphinha,Barcelona,89,80,Elite
 LW,Marcus Rashford,Manchester United,85,55,Elite
 LW,Luis Díaz,Liverpool,84,52,Elite
 LW,Kingsley Coman,Bayern Munich,84,50,Elite
+LW,Salem Al Dawsari,Al Hilal,82,0,Mediano
+LW,Álex Berenguer,Athletic Club,82,0,Mediano
 LW,Yannick Carrasco,Atlético Madrid,81,0,Mediano
 LW,Gabriel Martinelli,Arsenal,81,0,Mediano
 LW,Harvey Barnes,Newcastle,80,0,Mediano
@@ -48,10 +54,15 @@ RW,Rodrygo,Real Madrid,85,54,Elite
 RW,Nico Williams,Athletic Bilbao,84,50,Elite
 RW,Jadon Sancho,Chelsea,84,48,Elite
 RW,Federico Chiesa,Liverpool,84,46,Elite
+RW,Takefusa Kubo,Real Sociedad,82,0,Mediano
+RW,Ángel Di María,Rosario Central,82,0,Mediano
+RW,Domenico Berardi,Sassuolo,82,0,Mediano
+RW,Mason Greenwood,OM,82,0,Mediano
+RW,Dodi Lukébakio,SL Benfica,82,0,Mediano
+RW,Ritsu Doan,Frankfurt,82,0,Mediano
 RW,Facundo Buonanotte,Brighton,82,0,Mediano
 RW,Amad Diallo,Manchester United,81,0,Mediano
 RW,Oscar Gloukh,RB Salzburg,80,0,Mediano
-RW,Ángel Di María,Benfica,79,0,Mediano
 RW,Tete,Galatasaray,78,0,Mediano
 CM,Rodri,Manchester City,91,110,Elite
 CM,Vitinha,PSG,89,90,Elite
@@ -74,6 +85,17 @@ CM,Mateo Kovačić,Manchester City,86,52,Elite
 CM,Eduardo Camavinga,Real Madrid,86,50,Elite
 CM,Leon Goretzka,Bayern Munich,85,48,Elite
 CM,Alexis Mac Allister,Liverpool,85,46,Elite
+CM,Éderson,Bergamo Calcio,82,0,Mediano
+CM,Orkun Kökçü,Beşiktaş JK,82,0,Mediano
+CM,Denis Zakaria,AS Monaco,82,0,Mediano
+CM,Morgan Rogers,Aston Villa,82,0,Mediano
+CM,Malik Tillman,Leverkusen,82,0,Mediano
+CM,Otávio,Al Qadsiah,82,0,Mediano
+CM,Rafa,Beşiktaş JK,82,0,Mediano
+CM,Giovani Lo Celso,Real Betis,82,0,Mediano
+CM,Mario Götze,Frankfurt,82,0,Mediano
+CM,Parejo,Villarreal CF,82,0,Mediano
+CM,Mattéo Guendouzi,Latium,82,0,Mediano
 CM,Benoit Badiashile,Chelsea,82,0,Mediano
 CM,Davide Frattesi,Inter Milan,82,0,Mediano
 CM,Sander Berge,Fulham,81,0,Mediano
@@ -89,6 +111,8 @@ LB,Romain Faivre,Brest,83,40,Elite
 LB,Sérgio Conceição,Juventus,82,35,Elite
 LB,Pervis Estupiñán,Brighton,82,33,Elite
 LB,David Raum,RB Leipzig,82,31,Elite
+LB,David Raum,RB Leipzig,82,0,Mediano
+LB,Milos Kerkez,Liverpool,82,0,Mediano
 LB,Marc Cucurella,Chelsea,81,0,Mediano
 LB,Destiny Udogie,Tottenham,80,0,Mediano
 LB,Alejandro Balde,Barcelona,81,0,Mediano
@@ -106,6 +130,8 @@ RB,Benjamin White,Arsenal,83,44,Elite
 RB,João Cancelo,Al Hilal,84,48,Elite
 RB,Kyle Walker,Manchester City,85,52,Elite
 RB,Denzel Dumfries,Inter Milan,83,38,Elite
+RB,Pedro Porro,Spurs,82,0,Mediano
+RB,Konrad Laimer,Bayern Munich,82,0,Mediano
 RB,Marcos Llorente,Real Madrid,81,0,Mediano
 RB,Aaron Wan-Bissaka,Manchester United,80,0,Mediano
 RB,Max Aarons,Bournemouth,80,0,Mediano
@@ -127,6 +153,13 @@ CB,Matthijs de Ligt,Manchester United,85,53,Elite
 CB,Micky van de Ven,Tottenham,85,51,Elite
 CB,Cristian Romero,Tottenham,85,49,Elite
 CB,Gleison Bremer,Juventus,85,47,Elite
+CB,Emre Can,Borussia Dortmund,82,0,Mediano
+CB,David Alaba,Real Madrid,82,0,Mediano
+CB,John Stones,Manchester City,82,0,Mediano
+CB,Manuel Akanji,Lombardia FC,82,0,Mediano
+CB,Waldemar Anton,Borussia Dortmund,82,0,Mediano
+CB,Matthijs de Ligt,Man Utd,82,0,Mediano
+CB,Kalidou Koulibaly,Al Hilal,82,0,Mediano
 CB,Dayot Upamecano,Bayern Munich,82,0,Mediano
 CB,Danilo,Juventus,81,0,Mediano
 CB,Malick Tillman,PSV,81,0,Mediano
@@ -147,6 +180,9 @@ GK,Emiliano Martínez,Aston Villa,86,14,Elite
 GK,Diogo Costa,FC Porto,85,12,Elite
 GK,André Onana,Manchester United,84,10,Elite
 GK,Aaron Ramsdale,Southampton,83,8,Elite
+GK,Mile Svilar,AS Roma,82,0,Mediano
+GK,Gerónimo Rulli,OM,82,0,Mediano
+GK,Guglielmo Vicario,Spurs,82,0,Mediano
 GK,Rui Silva,Al-Ain,81,0,Mediano
 GK,De Gea,Fiorentina,85,0,Mediano
 GK,Villarreal CF,Villarreal,80,0,Mediano
