@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Trophy, DollarSign, TrendingUp, Users, Download, FileText } from 'lucide-react';
 import { exportToPDF } from '@/utils/pdfExport';
+import TacticalView from '@/components/TacticalView';
 
 interface FinalReportProps {
   teams: Team[];
@@ -167,11 +168,15 @@ export default function FinalReport({ teams, onReset }: FinalReportProps) {
                   </div>
 
                   {/* Players Tabs */}
-                  <Tabs defaultValue="starters" className="w-full">
-                    <TabsList className="grid w-full grid-cols-2 bg-muted">
+                  <Tabs defaultValue="tactical" className="w-full">
+                    <TabsList className="grid w-full grid-cols-3 bg-muted">
+                      <TabsTrigger value="tactical">Tática</TabsTrigger>
                       <TabsTrigger value="starters">Titulares ({starters.length})</TabsTrigger>
                       <TabsTrigger value="subs">Reservas ({subs.length})</TabsTrigger>
                     </TabsList>
+                    <TabsContent value="tactical" className="mt-4">
+                      <TacticalView team={team} />
+                    </TabsContent>
                     <TabsContent value="starters" className="space-y-2 max-h-64 overflow-y-auto">
                       {starters.map((p, idx) => (
                         <div
