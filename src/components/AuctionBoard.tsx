@@ -8,6 +8,8 @@ import { Player, Team, AuctionState, POSITIONS_ORDER } from '@/types/auction';
 import { ChevronRight, SkipForward, Undo2 } from 'lucide-react';
 import { toast } from 'sonner';
 import AuctionStats from '@/components/AuctionStats';
+import { getPlayerPhotoUrl, getPlaceholderAvatar } from '@/utils/playerPhotos';
+import { getRatingColor } from '@/utils/tacticalFormation';
 
 interface AuctionBoardProps {
   players: Player[];
@@ -208,27 +210,64 @@ export default function AuctionBoard({ players, teams, onUpdate, onFinish }: Auc
         </div>
 
         {/* Current Player Card */}
-        <Card className="p-8 bg-card border-border shadow-card">
-          <div className="text-center space-y-6">
-            <div className="space-y-2">
-              <Badge className="bg-gradient-secondary text-secondary-foreground">
-                {currentPlayer.position}
+        <Card className="p-8 bg-gradient-to-br from-card to-card/80 border-border shadow-card">
+          <h3 className="text-2xl font-bold mb-6 text-center">Jogador Atual no Leilão</h3>
+          
+          {/* Container da Foto */}
+          <div className="flex justify-center mb-6">
+            <div className="relative">
+              {/* Anel de destaque com cor do rating */}
+              <div 
+                className="absolute inset-0 rounded-full blur-xl opacity-40"
+                style={{ backgroundColor: getRatingColor(currentPlayer.rating) }}
+              />
+              
+              {/* Foto do Jogador */}
+              <div className="relative w-40 h-40 rounded-full overflow-hidden border-4 shadow-2xl"
+                   style={{ borderColor: getRatingColor(currentPlayer.rating) }}>
+                <img 
+                  src={getPlayerPhotoUrl(currentPlayer)}
+                  alt={currentPlayer.name}
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.currentTarget.src = getPlaceholderAvatar(currentPlayer.name);
+                  }}
+                />
+              </div>
+              
+              {/* Badge de Rating sobreposto */}
+              <div 
+                className="absolute -bottom-2 -right-2 w-16 h-16 rounded-full flex items-center justify-center font-black text-2xl shadow-lg border-4 border-background"
+                style={{ backgroundColor: getRatingColor(currentPlayer.rating), color: 'white' }}
+              >
+                {currentPlayer.rating}
+              </div>
+            </div>
+          </div>
+
+          {/* Informações do Jogador */}
+          <div className="text-center space-y-3">
+            <h2 className="text-3xl font-black">{currentPlayer.name}</h2>
+            
+            <div className="flex items-center justify-center gap-2 flex-wrap">
+              <Badge className="text-sm px-3 py-1">{currentPlayer.position}</Badge>
+              <Badge variant="outline" className="text-sm px-3 py-1">{currentPlayer.team}</Badge>
+              <Badge 
+                className="text-sm px-3 py-1"
+                style={{ 
+                  backgroundColor: getRatingColor(currentPlayer.rating),
+                  color: 'white',
+                  borderColor: getRatingColor(currentPlayer.rating)
+                }}
+              >
+                {currentPlayer.rating} OVR
               </Badge>
-              <h2 className="text-4xl font-bold">{currentPlayer.name}</h2>
-              <p className="text-muted-foreground text-lg">{currentPlayer.team}</p>
             </div>
             
-            <div className="flex gap-8 justify-center items-center">
-              <div className="text-center">
-                <p className="text-sm text-muted-foreground">Overall</p>
-                <p className="text-3xl font-bold text-primary">{currentPlayer.rating}</p>
-              </div>
-              <div className="text-center">
-                <p className="text-sm text-muted-foreground">Preço Mínimo</p>
-                <p className="text-3xl font-bold text-secondary">
-                  ${currentPlayer.minPrice}
-                </p>
-              </div>
+            <div className="pt-4 border-t border-border">
+              <p className="text-lg text-muted-foreground">
+                Preço Mínimo: <span className="font-bold text-2xl text-foreground">${currentPlayer.minPrice}</span>
+              </p>
             </div>
           </div>
         </Card>

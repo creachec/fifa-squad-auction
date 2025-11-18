@@ -10,7 +10,7 @@ export function parsePlayersCSV(): Player[] {
     const line = lines[i].trim();
     if (!line) continue;
 
-    const [position, name, team, rating, minPrice, type] = line.split(',');
+    const [position, name, team, rating, minPrice, type, eaId] = line.split(',');
     
     players.push({
       position: position.trim(),
@@ -19,6 +19,7 @@ export function parsePlayersCSV(): Player[] {
       rating: parseInt(rating),
       minPrice: parseInt(minPrice),
       type: type.trim() as 'Elite' | 'Mediano',
+      eaId: eaId?.trim() || undefined,
     });
   }
 

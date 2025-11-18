@@ -5,6 +5,7 @@ export interface Player {
   rating: number;
   minPrice: number;
   type: 'Elite' | 'Mediano';
+  eaId?: string;
 }
 
 export interface Team {

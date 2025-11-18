@@ -3,6 +3,7 @@ import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { selectBest11For433, isPlayerAdapted, getRatingColor } from '@/utils/tacticalFormation';
+import { getPlayerPhotoUrl, getPlaceholderAvatar } from '@/utils/playerPhotos';
 
 interface TacticalViewProps {
   team: Team;
@@ -18,7 +19,7 @@ function PlayerCard({ player, position, gridPosition }: PlayerCardProps) {
   if (!player) {
     return (
       <div className={`${gridPosition} flex items-center justify-center`}>
-        <Card className="w-24 h-28 flex flex-col items-center justify-center bg-muted/50 border-dashed border-muted-foreground/30">
+        <Card className="w-28 h-40 flex flex-col items-center justify-center bg-muted/50 border-dashed border-muted-foreground/30">
           <span className="text-xs text-muted-foreground">{position}</span>
           <span className="text-xs text-muted-foreground/50">Vazio</span>
         </Card>
@@ -28,15 +29,51 @@ function PlayerCard({ player, position, gridPosition }: PlayerCardProps) {
 
   const adapted = isPlayerAdapted(player, position);
   const ratingColor = getRatingColor(player.player.rating);
+  const photoUrl = getPlayerPhotoUrl(player.player);
+  const lastName = player.player.name.split(' ').slice(-1)[0];
 
   return (
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger asChild>
           <div className={`${gridPosition} flex items-center justify-center`}>
-            <Card className="w-24 h-28 flex flex-col items-center justify-center bg-card border-border hover:border-primary transition-all cursor-pointer">
-              <div className="flex items-center gap-1 mb-1">
-                <Badge variant="outline" className="text-[10px] px-1 py-0">
+            <Card className="w-28 h-40 flex flex-col items-center justify-center bg-gradient-to-b from-card to-card/80 hover:shadow-xl transition-all cursor-pointer hover:scale-105 relative overflow-hidden">
+              {/* Gradiente de fundo baseado no rating */}
+              <div 
+                className="absolute inset-0 opacity-10"
+                style={{
+                  background: `linear-gradient(135deg, ${ratingColor} 0%, transparent 100%)`
+                }}
+              />
+              
+              {/* Foto do Jogador */}
+              <div className="relative z-10 w-20 h-20 rounded-full overflow-hidden mb-2 border-2 border-border shadow-md">
+                <img 
+                  src={photoUrl} 
+                  alt={player.player.name}
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.currentTarget.src = getPlaceholderAvatar(player.player.name);
+                  }}
+                />
+              </div>
+
+              {/* Rating */}
+              <div 
+                className="relative z-10 text-2xl font-black mb-1 drop-shadow-md"
+                style={{ color: ratingColor }}
+              >
+                {player.player.rating}
+              </div>
+
+              {/* Nome (Sobrenome) */}
+              <div className="relative z-10 text-[11px] font-semibold text-center text-foreground px-1 truncate w-full">
+                {lastName}
+              </div>
+
+              {/* Badges */}
+              <div className="relative z-10 flex items-center gap-1 mt-1">
+                <Badge variant="outline" className="text-[8px] px-1 py-0 bg-background/80">
                   {position}
                 </Badge>
                 {adapted && (
@@ -45,30 +82,15 @@ function PlayerCard({ player, position, gridPosition }: PlayerCardProps) {
                   </Badge>
                 )}
               </div>
-              <div 
-                className="text-2xl font-bold mb-1"
-                style={{ color: ratingColor }}
-              >
-                {player.player.rating}
-              </div>
-              <div className="text-[10px] text-center text-foreground px-1 truncate w-full">
-                {player.player.name.split(' ').slice(-1)[0]}
-              </div>
             </Card>
           </div>
         </TooltipTrigger>
-        <TooltipContent>
+        <TooltipContent side="top" className="max-w-xs">
           <div className="space-y-1">
-            <p className="font-semibold">{player.player.name}</p>
-            <p className="text-xs text-muted-foreground">
-              Posição Natural: {player.player.position}
-            </p>
-            <p className="text-xs text-muted-foreground">
-              Clube: {player.player.team}
-            </p>
-            <p className="text-xs text-muted-foreground">
-              Preço: ${player.pricePaid}
-            </p>
+            <p className="font-bold">{player.player.name}</p>
+            <p className="text-xs text-muted-foreground">{player.player.team}</p>
+            <p className="text-xs">Posição Natural: <span className="font-semibold">{player.player.position}</span></p>
+            <p className="text-xs">Preço Pago: <span className="font-semibold">${player.pricePaid}</span></p>
             {adapted && (
               <p className="text-xs text-destructive">
                 Jogador adaptado de {player.player.position} para {position}
