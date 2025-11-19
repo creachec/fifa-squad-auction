@@ -84,6 +84,11 @@ CM,Nicolò Barella,Inter Milan,87,54,Elite,224232
 CM,Mateo Kovačić,Manchester City,86,52,Elite,207410
 CM,Eduardo Camavinga,Real Madrid,86,50,Elite,248243
 CM,Leon Goretzka,Bayern Munich,85,48,Elite,209658
+CM,Bernardo Silva,Manchester City,87,56,Elite
+CM,Nicolò Barella,Inter Milan,87,54,Elite,224232
+CM,Mateo Kovačić,Manchester City,86,52,Elite
+CM,Eduardo Camavinga,Real Madrid,86,50,Elite
+CM,Leon Goretzka,Bayern Munich,85,48,Elite
 CM,Alexis Mac Allister,Liverpool,85,46,Elite,239837
 CM,Éderson,Bergamo Calcio,82,0,Mediano
 CM,Orkun Kökçü,Beşiktaş JK,82,0,Mediano
@@ -104,6 +109,8 @@ CM,Wilfried Ndidi,Leicester,80,0,Mediano
 LB,Nuno Mendes,PSG,86,60,Elite,252145
 LB,Joško Gvardiol,Manchester City,84,48,Elite,251517
 LB,Alphonso Davies,Bayern Munich,84,46,Elite,234396
+LB,Joško Gvardiol,Manchester City,84,48,Elite
+LB,Alphonso Davies,Bayern Munich,84,46,Elite
 LB,Theo Hernández,AC Milan,84,44,Elite,232656
 LB,Federico Dimarco,Inter Milan,85,52,Elite,226268
 LB,Tyreek Wilson,Liverpool,83,42,Elite
@@ -148,6 +155,7 @@ CB,Rúben Dias,Manchester City,86,63,Elite,239818
 CB,Willian Pacho,PSG,86,61,Elite,256196
 CB,Ibrahima Konaté,Liverpool,86,59,Elite,237678
 CB,Eder Militão,Real Madrid,86,57,Elite,240130
+CB,Eder Militão,Real Madrid,86,57,Elite
 CB,Kim Min-jae,Bayern Munich,86,55,Elite
 CB,Matthijs de Ligt,Manchester United,85,53,Elite
 CB,Micky van de Ven,Tottenham,85,51,Elite
