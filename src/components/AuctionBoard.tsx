@@ -223,12 +223,12 @@ export default function AuctionBoard({ players, teams, onUpdate, onFinish }: Auc
               />
               
               {/* Foto do Jogador */}
-              <div className="relative w-40 h-40 rounded-full overflow-hidden border-4 shadow-2xl"
+              <div className="relative w-48 aspect-[440/548] rounded-xl overflow-hidden border-4 shadow-2xl bg-gradient-to-b from-slate-800 to-slate-900"
                    style={{ borderColor: getRatingColor(currentPlayer.rating) }}>
                 <img 
                   src={getPlayerPhotoUrl(currentPlayer)}
                   alt={currentPlayer.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                   onError={(e) => {
                     e.currentTarget.src = getPlaceholderAvatar(currentPlayer.name);
                   }}
@@ -237,7 +237,7 @@ export default function AuctionBoard({ players, teams, onUpdate, onFinish }: Auc
               
               {/* Badge de Rating sobreposto */}
               <div 
-                className="absolute -bottom-2 -right-2 w-16 h-16 rounded-full flex items-center justify-center font-black text-2xl shadow-lg border-4 border-background"
+                className="absolute bottom-2 right-2 w-16 h-16 rounded-full flex items-center justify-center font-black text-2xl shadow-lg border-4 border-background"
                 style={{ backgroundColor: getRatingColor(currentPlayer.rating), color: 'white' }}
               >
                 {currentPlayer.rating}

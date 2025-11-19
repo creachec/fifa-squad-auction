@@ -37,7 +37,7 @@ function PlayerCard({ player, position, gridPosition }: PlayerCardProps) {
       <Tooltip>
         <TooltipTrigger asChild>
           <div className={`${gridPosition} flex items-center justify-center`}>
-            <Card className="w-28 h-40 flex flex-col items-center justify-center bg-gradient-to-b from-card to-card/80 hover:shadow-xl transition-all cursor-pointer hover:scale-105 relative overflow-hidden">
+            <Card className="w-24 h-48 flex flex-col items-center justify-center bg-gradient-to-b from-card to-card/80 hover:shadow-xl transition-all cursor-pointer hover:scale-105 relative overflow-hidden">
               {/* Gradiente de fundo baseado no rating */}
               <div 
                 className="absolute inset-0 opacity-10"
@@ -47,11 +47,11 @@ function PlayerCard({ player, position, gridPosition }: PlayerCardProps) {
               />
               
               {/* Foto do Jogador */}
-              <div className="relative z-10 w-20 h-20 rounded-full overflow-hidden mb-2 border-2 border-border shadow-md">
+              <div className="relative z-10 w-16 aspect-[440/548] rounded-lg overflow-hidden mb-2 border-2 border-border shadow-md bg-gradient-to-b from-slate-800 to-slate-900">
                 <img 
                   src={photoUrl} 
                   alt={player.player.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                   onError={(e) => {
                     e.currentTarget.src = getPlaceholderAvatar(player.player.name);
                   }}
