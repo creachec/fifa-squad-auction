@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -27,6 +27,8 @@ export default function AuctionBoard({
   const [auctionHistory, setAuctionHistory] = useState<any[]>([]);
   const [localTeams, setLocalTeams] = useState(teams);
   const [bidAmounts, setBidAmounts] = useState<Record<string, number>>({});
+  const [celebrating, setCelebrating] = useState(false);
+  const [playerKey, setPlayerKey] = useState(0);
   const currentPosition = POSITIONS_ORDER[currentPositionIndex];
   const positionPlayers = players.filter(p => p.position === currentPosition && p.type === 'Elite');
   const currentPlayer = positionPlayers[currentPlayerIndex];
@@ -69,12 +71,20 @@ export default function AuctionBoard({
     setLocalTeams(newTeams);
     setAuctionHistory([...auctionHistory, historyEntry]);
     setBidAmounts({}); // Reset bid amounts
+    
+    // Trigger celebration effect
+    setCelebrating(true);
+    setTimeout(() => setCelebrating(false), 1000);
+    
     toast.success(`${currentPlayer.name} → ${team.name} por ${bidAmount > 0 ? `$${bidAmount}` : 'GRÁTIS'}`);
-    nextPlayer();
+    
+    // Delay player transition for celebration
+    setTimeout(() => nextPlayer(), 600);
   };
   const nextPlayer = () => {
     if (currentPlayerIndex < positionPlayers.length - 1) {
       setCurrentPlayerIndex(currentPlayerIndex + 1);
+      setPlayerKey(prev => prev + 1); // Trigger animation
     } else {
       nextPosition();
     }
@@ -83,6 +93,7 @@ export default function AuctionBoard({
     if (currentPositionIndex < POSITIONS_ORDER.length - 1) {
       setCurrentPositionIndex(currentPositionIndex + 1);
       setCurrentPlayerIndex(0);
+      setPlayerKey(prev => prev + 1); // Trigger animation
       toast.info(`Mudando para posição: ${POSITIONS_ORDER[currentPositionIndex + 1]}`);
     } else {
       // Auction finished
@@ -168,19 +179,24 @@ export default function AuctionBoard({
         </div>
 
         {/* Current Player Card */}
-        <Card className="p-8 bg-gradient-to-br from-card to-card/80 border-border shadow-card">
+        <Card className="p-8 bg-gradient-to-br from-card to-card/80 border-border shadow-card relative overflow-hidden">
+          {/* Celebration Overlay */}
+          {celebrating && (
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/30 via-accent/30 to-primary/30 animate-pulse z-10 pointer-events-none" />
+          )}
+          
           <h3 className="text-2xl font-bold mb-6 text-center">Jogador Atual no Leilão</h3>
           
-          {/* Container da Foto */}
-          <div className="flex justify-center mb-6">
-            <div className="relative">
+          {/* Container da Foto com Animação */}
+          <div className="flex justify-center mb-6" key={playerKey}>
+            <div className="relative animate-fade-in">
               {/* Anel de destaque com cor do rating */}
-              <div className="absolute inset-0 rounded-full blur-xl opacity-40" style={{
+              <div className="absolute inset-0 rounded-full blur-xl opacity-40 transition-all duration-500" style={{
                 backgroundColor: getRatingColor(currentPlayer.rating)
               }} />
               
               {/* Foto do Jogador */}
-              <div className="relative w-48 aspect-[440/548] rounded-xl overflow-hidden border-4 shadow-2xl bg-gradient-to-b from-slate-800 to-slate-900" style={{
+              <div className="relative w-48 aspect-[440/548] rounded-xl overflow-hidden border-4 shadow-2xl bg-gradient-to-b from-slate-800 to-slate-900 transition-all duration-300 animate-scale-in" style={{
                 borderColor: getRatingColor(currentPlayer.rating)
               }}>
                 <img src={getPlayerPhotoUrl(currentPlayer)} alt={currentPlayer.name} className="w-full h-full object-contain" onError={e => {
