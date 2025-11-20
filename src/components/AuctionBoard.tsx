@@ -5,7 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Player, Team, AuctionState, POSITIONS_ORDER } from '@/types/auction';
-import { ChevronRight, SkipForward, Undo2, Users } from 'lucide-react';
+import { ChevronRight, SkipForward, Undo2 } from 'lucide-react';
 import { toast } from 'sonner';
 import AuctionStats from '@/components/AuctionStats';
 import { getPlayerPhotoUrl, getPlaceholderAvatar } from '@/utils/playerPhotos';
@@ -15,16 +15,12 @@ interface AuctionBoardProps {
   teams: Team[];
   onUpdate: (teams: Team[], auctionState: AuctionState) => void;
   onFinish: () => void;
-  onPlayerSelect?: (player: Player) => void;
-  selectedPlayers?: Player[];
 }
 export default function AuctionBoard({
   players,
   teams,
   onUpdate,
-  onFinish,
-  onPlayerSelect,
-  selectedPlayers = []
+  onFinish
 }: AuctionBoardProps) {
   const [currentPositionIndex, setCurrentPositionIndex] = useState(0);
   const [currentPlayerIndex, setCurrentPlayerIndex] = useState(0);
@@ -189,20 +185,7 @@ export default function AuctionBoard({
             <div className="absolute inset-0 bg-gradient-to-r from-primary/30 via-accent/30 to-primary/30 animate-pulse z-10 pointer-events-none" />
           )}
           
-          <div className="flex items-center justify-between mb-6">
-            <h3 className="text-2xl font-bold">Jogador Atual no Leilão</h3>
-            {onPlayerSelect && (
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => onPlayerSelect(currentPlayer)}
-                className={selectedPlayers.some(p => p.name === currentPlayer.name) ? 'bg-primary text-primary-foreground' : ''}
-              >
-                <Users className="h-4 w-4 mr-2" />
-                {selectedPlayers.some(p => p.name === currentPlayer.name) ? 'Selecionado' : 'Comparar'}
-              </Button>
-            )}
-          </div>
+          <h3 className="text-2xl font-bold mb-6">Jogador Atual no Leilão</h3>
           
           {/* Container da Foto com Animação */}
           <div className="flex justify-center mb-6" key={playerKey}>
