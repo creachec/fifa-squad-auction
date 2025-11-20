@@ -2,12 +2,13 @@ import { useState } from 'react';
 import TeamSetup from '@/components/TeamSetup';
 import AuctionBoard from '@/components/AuctionBoard';
 import FinalReport from '@/components/FinalReport';
+import { PlayerComparison } from '@/components/PlayerComparison';
 import { parsePlayersCSV } from '@/utils/csvParser';
 import { distributeMedianoPlayers } from '@/utils/playerDistribution';
-import { Team, AuctionState } from '@/types/auction';
+import { Team, AuctionState, Player } from '@/types/auction';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { Shuffle } from 'lucide-react';
+import { Shuffle, Users } from 'lucide-react';
 import { toast } from 'sonner';
 
 type AppState = 'setup' | 'auction' | 'report';
@@ -17,6 +18,8 @@ const Index = () => {
   const [teams, setTeams] = useState<Team[]>([]);
   const [auctionState, setAuctionState] = useState<AuctionState | null>(null);
   const [showDistributeButton, setShowDistributeButton] = useState(false);
+  const [showComparison, setShowComparison] = useState(false);
+  const [selectedPlayers, setSelectedPlayers] = useState<Player[]>([]);
   const players = parsePlayersCSV();
 
 
@@ -49,18 +52,48 @@ const Index = () => {
     setShowDistributeButton(false);
   };
 
+  const handlePlayerSelect = (player: Player) => {
+    if (selectedPlayers.find(p => p.name === player.name)) {
+      setSelectedPlayers(selectedPlayers.filter(p => p.name !== player.name));
+    } else if (selectedPlayers.length < 2) {
+      const newSelected = [...selectedPlayers, player];
+      setSelectedPlayers(newSelected);
+      if (newSelected.length === 2) {
+        setShowComparison(true);
+      }
+    } else {
+      toast.info('Você já selecionou 2 jogadores. Feche a comparação para selecionar outros.');
+    }
+  };
+
+  const handleCloseComparison = () => {
+    setShowComparison(false);
+    setSelectedPlayers([]);
+  };
+
   if (appState === 'setup') {
     return <TeamSetup onStart={handleStart} />;
   }
 
   if (appState === 'auction') {
     return (
-      <AuctionBoard
-        players={players}
-        teams={teams}
-        onUpdate={handleAuctionUpdate}
-        onFinish={handleFinish}
-      />
+      <>
+        <AuctionBoard
+          players={players}
+          teams={teams}
+          onUpdate={handleAuctionUpdate}
+          onFinish={handleFinish}
+          onPlayerSelect={handlePlayerSelect}
+          selectedPlayers={selectedPlayers}
+        />
+        {showComparison && selectedPlayers.length === 2 && (
+          <PlayerComparison
+            player1={selectedPlayers[0]}
+            player2={selectedPlayers[1]}
+            onClose={handleCloseComparison}
+          />
+        )}
+      </>
     );
   }
 
