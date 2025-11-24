@@ -8,6 +8,7 @@ import { Player, Team, AuctionState, POSITIONS_ORDER } from '@/types/auction';
 import { ChevronRight, SkipForward, Undo2 } from 'lucide-react';
 import { toast } from 'sonner';
 import AuctionStats from '@/components/AuctionStats';
+import LiveDashboard from '@/components/LiveDashboard';
 import { getPlayerPhotoUrl, getPlaceholderAvatar } from '@/utils/playerPhotos';
 import { getRatingColor } from '@/utils/tacticalFormation';
 interface AuctionBoardProps {
@@ -165,8 +166,9 @@ export default function AuctionBoard({
   return <div className="min-h-screen bg-gradient-dark p-8">
       <div className="grid lg:grid-cols-4 gap-8 max-w-screen-2xl mx-auto">
         {/* Stats Sidebar */}
-        <div className="lg:col-span-1">
+        <div className="lg:col-span-1 space-y-6">
           <AuctionStats teams={localTeams} history={auctionHistory} totalPlayers={elitePlayers.length} currentPlayerCount={auctionedPlayersCount} />
+          <LiveDashboard teams={localTeams} history={auctionHistory} />
         </div>
 
         {/* Main Auction Area */}
