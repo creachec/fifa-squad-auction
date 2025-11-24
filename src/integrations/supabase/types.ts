@@ -14,7 +14,121 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      auction_players: {
+        Row: {
+          auction_team_id: string
+          created_at: string
+          ea_id: string | null
+          id: string
+          is_starter: boolean
+          player_name: string
+          player_position: string
+          player_rating: number
+          player_team: string
+          player_type: string
+          price_paid: number
+        }
+        Insert: {
+          auction_team_id: string
+          created_at?: string
+          ea_id?: string | null
+          id?: string
+          is_starter?: boolean
+          player_name: string
+          player_position: string
+          player_rating: number
+          player_team: string
+          player_type: string
+          price_paid: number
+        }
+        Update: {
+          auction_team_id?: string
+          created_at?: string
+          ea_id?: string | null
+          id?: string
+          is_starter?: boolean
+          player_name?: string
+          player_position?: string
+          player_rating?: number
+          player_team?: string
+          player_type?: string
+          price_paid?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "auction_players_auction_team_id_fkey"
+            columns: ["auction_team_id"]
+            isOneToOne: false
+            referencedRelation: "auction_teams"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      auction_teams: {
+        Row: {
+          auction_id: string
+          budget: number
+          color: string
+          created_at: string
+          id: string
+          initial_budget: number
+          name: string
+        }
+        Insert: {
+          auction_id: string
+          budget: number
+          color: string
+          created_at?: string
+          id?: string
+          initial_budget: number
+          name: string
+        }
+        Update: {
+          auction_id?: string
+          budget?: number
+          color?: string
+          created_at?: string
+          id?: string
+          initial_budget?: number
+          name?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "auction_teams_auction_id_fkey"
+            columns: ["auction_id"]
+            isOneToOne: false
+            referencedRelation: "auctions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      auctions: {
+        Row: {
+          completed_at: string | null
+          created_at: string
+          id: string
+          name: string
+          status: string
+          total_budget: number
+        }
+        Insert: {
+          completed_at?: string | null
+          created_at?: string
+          id?: string
+          name: string
+          status?: string
+          total_budget: number
+        }
+        Update: {
+          completed_at?: string | null
+          created_at?: string
+          id?: string
+          name?: string
+          status?: string
+          total_budget?: number
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
