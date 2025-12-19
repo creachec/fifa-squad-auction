@@ -69,9 +69,17 @@ export default function AuctionBoard({
       pricePaid: bidAmount,
       timestamp: Date.now()
     };
+    const newHistory = [...auctionHistory, historyEntry];
     setLocalTeams(newTeams);
-    setAuctionHistory([...auctionHistory, historyEntry]);
+    setAuctionHistory(newHistory);
     setBidAmounts({}); // Reset bid amounts
+    
+    // Update parent component with new teams
+    onUpdate(newTeams, {
+      currentPositionIndex,
+      currentPlayerIndex,
+      history: newHistory
+    });
     
     // Trigger celebration effect
     setCelebrating(true);
