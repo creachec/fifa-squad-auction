@@ -15,7 +15,7 @@ export function distributeMedianoPlayers(teams: Team[], allPlayers: Player[]): T
   // Get all mediano players grouped by position
   const medianoPlayers = allPlayers.filter((p) => p.type === 'Mediano');
   const playersByPosition: Record<string, Player[]> = {};
-  
+
   medianoPlayers.forEach((player) => {
     if (!playersByPosition[player.position]) {
       playersByPosition[player.position] = [];
@@ -29,54 +29,73 @@ export function distributeMedianoPlayers(teams: Team[], allPlayers: Player[]): T
   });
 
   const updatedTeams = teams.map((team) => {
-    const starters = team.players.filter((p) => p.isStarter);
-    const reserves = team.players.filter((p) => !p.isStarter);
+    let startersCount = team.players.filter((p) => p.isStarter).length;
+    let reservesCount = team.players.filter((p) => !p.isStarter).length;
 
     const assignedPlayers: Array<{ player: Player; isStarter: boolean }> = [];
 
-    // Step 1: Complete missing starters based on FORMATION_REQUIREMENTS (only if less than 11 starters)
-    if (starters.length < 11) {
-      Object.entries(FORMATION_REQUIREMENTS).forEach(([position, required]) => {
-        const currentCount = starters.filter((p) => p.player.position === position).length;
-        const needed = required - currentCount;
-        
-        for (let i = 0; i < needed; i++) {
-          if (playersByPosition[position]?.length > 0) {
-            const player = playersByPosition[position].pop();
-            if (player) {
-              assignedPlayers.push({ player, isStarter: true });
-            }
-          }
+    // Step 1: Try to fill starters up to exactly 11 based on formation limits
+    Object.entries(FORMATION_REQUIREMENTS).forEach(([position, required]) => {
+      const currentPosStarters = team.players.filter((p) => p.player.position === position && p.isStarter).length;
+      let needed = required - currentPosStarters;
+
+      while (needed > 0 && startersCount < 11) {
+        if (playersByPosition[position]?.length > 0) {
+          const player = playersByPosition[position].pop()!;
+          assignedPlayers.push({ player, isStarter: true });
+          startersCount++;
+          needed--;
+        } else {
+          break; // No more medianos available for this position
         }
-      });
+      }
+    });
+
+    // If we STILL don't have 11 starters (ran out of exact position constraints), fill with any available mediano
+    if (startersCount < 11) {
+      for (const pos in playersByPosition) {
+        while (playersByPosition[pos].length > 0 && startersCount < 11) {
+          const player = playersByPosition[pos].pop()!;
+          assignedPlayers.push({ player, isStarter: true });
+          startersCount++;
+        }
+      }
     }
 
-    // Step 2: Add reserves following RESERVE_REQUIREMENTS (1 per position type)
-    // Always add to reserves when team has 11+ starters
-    const currentReserves = reserves.map(r => r.player);
+    // Step 2: Fill reserves up to exactly 7
+    const currentReserves = team.players.filter((p) => !p.isStarter).map(p => p.player);
 
     RESERVE_REQUIREMENTS.forEach((positionRequirement) => {
-      // Check if this reserve position type is already filled
+      if (reservesCount >= 7) return;
+
       const positions = Array.isArray(positionRequirement) ? positionRequirement : [positionRequirement];
-      
-      const alreadyHasReserve = currentReserves.some((r) =>
-        positions.includes(r.position)
-      );
+      // Check if team already has a reserve that fits this requirement
+      const alreadyHasReserve =
+        currentReserves.some((r) => positions.includes(r.position)) ||
+        assignedPlayers.some(p => !p.isStarter && positions.includes(p.player.position));
 
       if (!alreadyHasReserve) {
-        // Try to find a player for this position
         for (const position of positions) {
           if (playersByPosition[position]?.length > 0) {
-            const player = playersByPosition[position].pop();
-            if (player) {
-              assignedPlayers.push({ player, isStarter: false });
-              currentReserves.push(player);
-              break; // Found a player for this requirement, move to next
-            }
+            const player = playersByPosition[position].pop()!;
+            assignedPlayers.push({ player, isStarter: false });
+            reservesCount++;
+            break;
           }
         }
       }
     });
+
+    // If we STILL don't have 7 reserves, fill with any available mediano
+    if (reservesCount < 7) {
+      for (const pos in playersByPosition) {
+        while (playersByPosition[pos].length > 0 && reservesCount < 7) {
+          const player = playersByPosition[pos].pop()!;
+          assignedPlayers.push({ player, isStarter: false });
+          reservesCount++;
+        }
+      }
+    }
 
     return {
       ...team,

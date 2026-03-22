@@ -14,15 +14,15 @@ ST,Ollie Watkins,Aston Villa,86,48,Elite,10
 ST,Christopher Nkunku,Chelsea,86,46,Elite,11
 ST,Victor Osimhen,Galatasaray,86,44,Elite,232293
 ST,Darwin Núñez,Liverpool,85,42,Elite,13
-ST,Jonathan David,Juventus,82,0,Mediano
-ST,Oyarzabal,Real Sociedad,82,0,Mediano
-ST,Jean-Philippe Mateta,Crystal Palace,82,0,Mediano
-ST,Yoane Wissa,Newcastle Utd,82,0,Mediano
-ST,Dušan Vlahović,Juventus,82,0,Mediano
-ST,Arkadiusz Milik,Juventus,82,0,Mediano
-ST,Sébastien Haller,Borussia Dortmund,81,0,Mediano
-ST,Andrea Belotti,Fiorentina,80,0,Mediano
-ST,Evanilson,FC Porto,79,0,Mediano
+ST,Jonathan David,Juventus,82,0,Mediano,243630
+ST,Oyarzabal,Real Sociedad,82,0,Mediano,230142
+ST,Jean-Philippe Mateta,Crystal Palace,82,0,Mediano,240134
+ST,Yoane Wissa,Newcastle Utd,82,0,Mediano,233064
+ST,Dušan Vlahović,Juventus,82,0,Mediano,246147
+ST,Arkadiusz Milik,Juventus,82,0,Mediano,214875
+ST,Sébastien Haller,Borussia Dortmund,81,0,Mediano,205693
+ST,Andrea Belotti,Fiorentina,80,0,Mediano,211320
+ST,Evanilson,FC Porto,79,0,Mediano,241093
 LW,Mohamed Salah,Liverpool,91,110,Elite,209331
 LW,Vinícius Júnior,Real Madrid,89,85,Elite,238794
 LW,Raphinha,Barcelona,89,80,Elite,233419
@@ -37,13 +37,13 @@ LW,Kingsley Coman,Bayern Munich,84,50,Elite,26
 LW,Anthony Gordon,Newcastle,83,48,Elite,19
 LW,Ferran Torres,Barcelona,83,46,Elite,20
 LW,Leandro Trossard,Arsenal,83,44,Elite,21
-LW,Salem Al Dawsari,Al Hilal,82,0,Mediano
-LW,Álex Berenguer,Athletic Club,82,0,Mediano
-LW,Yannick Carrasco,Atlético Madrid,81,0,Mediano
-LW,Gabriel Martinelli,Arsenal,81,0,Mediano
-LW,Harvey Barnes,Newcastle,80,0,Mediano
-LW,Armand Laurienté,Sassuolo,80,0,Mediano
-LW,Christian Pulisic,AC Milan,79,0,Mediano
+LW,Salem Al Dawsari,Al Hilal,82,0,Mediano,211256
+LW,Álex Berenguer,Athletic Club,82,0,Mediano,225881
+LW,Yannick Carrasco,Atlético Madrid,81,0,Mediano,208418
+LW,Gabriel Martinelli,Arsenal,81,0,Mediano,251566
+LW,Harvey Barnes,Newcastle,80,0,Mediano,235790
+LW,Armand Laurienté,Sassuolo,80,0,Mediano,246618
+LW,Christian Pulisic,AC Milan,79,0,Mediano,227796
 RW,Lamine Yamal,Barcelona,89,85,Elite,277643
 RW,Michael Olise,Bayern Munich,86,68,Elite,247827
 RW,Lionel Messi,Inter Miami,86,66,Elite,158023
@@ -54,16 +54,16 @@ RW,Rodrygo,Real Madrid,85,54,Elite,243812
 RW,Nico Williams,Athletic Bilbao,84,50,Elite,256516
 RW,Jadon Sancho,Chelsea,84,48,Elite,35
 RW,Federico Chiesa,Liverpool,84,46,Elite,36
-RW,Takefusa Kubo,Real Sociedad,82,0,Mediano
-RW,Ángel Di María,Rosario Central,82,0,Mediano
-RW,Domenico Berardi,Sassuolo,82,0,Mediano
-RW,Mason Greenwood,OM,82,0,Mediano
-RW,Dodi Lukébakio,SL Benfica,82,0,Mediano
-RW,Ritsu Doan,Frankfurt,82,0,Mediano
-RW,Facundo Buonanotte,Brighton,82,0,Mediano
-RW,Amad Diallo,Manchester United,81,0,Mediano
-RW,Oscar Gloukh,RB Salzburg,80,0,Mediano
-RW,Tete,Galatasaray,78,0,Mediano
+RW,Takefusa Kubo,Real Sociedad,82,0,Mediano,237823
+RW,Ángel Di María,Rosario Central,82,0,Mediano,183898
+RW,Domenico Berardi,Sassuolo,82,0,Mediano,202750
+RW,Mason Greenwood,OM,82,0,Mediano,246141
+RW,Dodi Lukébakio,SL Benfica,82,0,Mediano,231580
+RW,Ritsu Doan,Frankfurt,82,0,Mediano,237699
+RW,Facundo Buonanotte,Brighton,82,0,Mediano,269869
+RW,Amad Diallo,Manchester United,81,0,Mediano,256123
+RW,Oscar Gloukh,RB Salzburg,80,0,Mediano,268297
+RW,Tete,Galatasaray,78,0,Mediano,242000
 CM,Rodri,Manchester City,91,110,Elite,231866
 CM,Jude Bellingham,Real Madrid,90,105,Elite,252371
 CM,Vitinha,PSG,89,90,Elite,255253
@@ -85,56 +85,56 @@ CM,Eduardo Camavinga,Real Madrid,86,50,Elite,248243
 CM,Aurélien Tchouaméni,Real Madrid,86,58,Elite,46
 CM,Alexis Mac Allister,Liverpool,85,46,Elite,239837
 CM,Leon Goretzka,Bayern Munich,85,48,Elite,209658
-CM,Éderson,Bergamo Calcio,82,0,Mediano
-CM,Orkun Kökçü,Beşiktaş JK,82,0,Mediano
-CM,Denis Zakaria,AS Monaco,82,0,Mediano
-CM,Morgan Rogers,Aston Villa,82,0,Mediano
-CM,Malik Tillman,Leverkusen,82,0,Mediano
-CM,Otávio,Al Qadsiah,82,0,Mediano
-CM,Rafa,Beşiktaş JK,82,0,Mediano
-CM,Giovani Lo Celso,Real Betis,82,0,Mediano
-CM,Mario Götze,Frankfurt,82,0,Mediano
-CM,Parejo,Villarreal CF,82,0,Mediano
-CM,Mattéo Guendouzi,Latium,82,0,Mediano
-CM,Benoit Badiashile,Chelsea,82,0,Mediano
-CM,Davide Frattesi,Inter Milan,82,0,Mediano
-CM,Sander Berge,Fulham,81,0,Mediano
-CM,Youri Tielemans,Aston Villa,81,0,Mediano
-CM,Wilfried Ndidi,Leicester,80,0,Mediano
+CM,Éderson,Bergamo Calcio,82,0,Mediano,241266
+CM,Orkun Kökçü,Beşiktaş JK,82,0,Mediano,243952
+CM,Denis Zakaria,AS Monaco,82,0,Mediano,225100
+CM,Morgan Rogers,Aston Villa,82,0,Mediano,265697
+CM,Malik Tillman,Leverkusen,82,0,Mediano,257322
+CM,Otávio,Al Qadsiah,82,0,Mediano,220803
+CM,Rafa,Beşiktaş JK,82,0,Mediano,210513
+CM,Giovani Lo Celso,Real Betis,82,0,Mediano,232432
+CM,Mario Götze,Frankfurt,82,0,Mediano,192318
+CM,Parejo,Villarreal CF,82,0,Mediano,189513
+CM,Mattéo Guendouzi,Latium,82,0,Mediano,238072
+CM,Benoit Badiashile,Chelsea,82,0,Mediano,244229
+CM,Davide Frattesi,Inter Milan,82,0,Mediano,240360
+CM,Sander Berge,Fulham,81,0,Mediano,228085
+CM,Youri Tielemans,Aston Villa,81,0,Mediano,231636
+CM,Wilfried Ndidi,Leicester,80,0,Mediano,234045
 LB,Nuno Mendes,PSG,86,60,Elite,252145
 LB,Federico Dimarco,Inter Milan,85,52,Elite,226268
 LB,Joško Gvardiol,Manchester City,84,48,Elite,251517
 LB,Alphonso Davies,Bayern Munich,84,46,Elite,234396
 LB,Theo Hernández,AC Milan,84,44,Elite,232656
-LB,Tyreek Wilson,Liverpool,83,42,Elite
-LB,Romain Faivre,Brest,83,40,Elite
-LB,Sérgio Conceição,Juventus,82,35,Elite
-LB,Pervis Estupiñán,Brighton,82,33,Elite
-LB,David Raum,RB Leipzig,82,31,Elite
-LB,Milos Kerkez,Liverpool,82,0,Mediano
-LB,Marc Cucurella,Chelsea,81,0,Mediano
-LB,Alejandro Balde,Barcelona,81,0,Mediano
-LB,Ferland Mendy,Real Madrid,81,0,Mediano
-LB,Destiny Udogie,Tottenham,80,0,Mediano
-LB,Ola Aina,Nottingham,79,0,Mediano
+LB,Tyreek Wilson,Liverpool,83,42,Elite,263688
+LB,Romain Faivre,Brest,83,40,Elite,240367
+LB,Sérgio Conceição,Juventus,82,35,Elite,257530
+LB,Pervis Estupiñán,Brighton,82,33,Elite,234236
+LB,David Raum,RB Leipzig,82,31,Elite,237012
+LB,Milos Kerkez,Liverpool,82,0,Mediano,263688
+LB,Marc Cucurella,Chelsea,81,0,Mediano,244203
+LB,Alejandro Balde,Barcelona,81,0,Mediano,260533
+LB,Ferland Mendy,Real Madrid,81,0,Mediano,238789
+LB,Destiny Udogie,Tottenham,80,0,Mediano,257855
+LB,Ola Aina,Nottingham,79,0,Mediano,231548
 RB,Achraf Hakimi,PSG,89,80,Elite,235212
 RB,Jules Koundé,Barcelona,87,70,Elite,241486
 RB,Trent Alexander-Arnold,Liverpool,86,60,Elite,231281
-RB,Kyle Walker,Manchester City,85,52,Elite
+RB,Kyle Walker,Manchester City,85,52,Elite,188350
 RB,Dani Carvajal,Real Madrid,85,50,Elite,204963
 RB,João Cancelo,Al Hilal,84,48,Elite,210514
-RB,Reece James,Chelsea,84,46,Elite
-RB,Benjamin White,Arsenal,83,44,Elite
-RB,Kalvin Phillips,Manchester City,83,42,Elite
-RB,Jeremie Freuler,Atalanta,83,40,Elite
-RB,Denzel Dumfries,Inter Milan,83,38,Elite
-RB,Giovanni Di Lorenzo,Napoli,82,36,Elite
-RB,Pedro Porro,Spurs,82,0,Mediano
-RB,Konrad Laimer,Bayern Munich,82,0,Mediano
-RB,Marcos Llorente,Real Madrid,81,0,Mediano
-RB,Aaron Wan-Bissaka,Manchester United,80,0,Mediano
-RB,Max Aarons,Bournemouth,80,0,Mediano
-RB,Fabio Vigorito,Como,78,0,Mediano
+RB,Reece James,Chelsea,84,46,Elite,238074
+RB,Benjamin White,Arsenal,83,44,Elite,235569
+RB,Kalvin Phillips,Manchester City,83,42,Elite,230666
+RB,Jeremie Freuler,Atalanta,83,40,Elite,212616
+RB,Denzel Dumfries,Inter Milan,83,38,Elite,228093
+RB,Giovanni Di Lorenzo,Napoli,82,36,Elite,228702
+RB,Pedro Porro,Spurs,82,0,Mediano,247204
+RB,Konrad Laimer,Bayern Munich,82,0,Mediano,232580
+RB,Marcos Llorente,Real Madrid,81,0,Mediano,226161
+RB,Aaron Wan-Bissaka,Manchester United,80,0,Mediano,229880
+RB,Max Aarons,Bournemouth,80,0,Mediano,243566
+RB,Fabio Vigorito,Como,78,0,Mediano,214061
 CB,Virgil van Dijk,Liverpool,90,95,Elite,203376
 CB,Gabriel Magalhães,Arsenal,88,85,Elite,232580
 CB,Alessandro Bastoni,Inter Milan,87,75,Elite,237383
@@ -146,22 +146,22 @@ CB,Rúben Dias,Manchester City,86,63,Elite,239818
 CB,Willian Pacho,PSG,86,61,Elite,256196
 CB,Ibrahima Konaté,Liverpool,86,59,Elite,237678
 CB,Eder Militão,Real Madrid,86,57,Elite,240130
-CB,Kim Min-jae,Bayern Munich,86,55,Elite
-CB,Matthijs de Ligt,Manchester United,85,53,Elite
-CB,Micky van de Ven,Tottenham,85,51,Elite
-CB,Cristian Romero,Tottenham,85,49,Elite
+CB,Kim Min-jae,Bayern Munich,86,55,Elite,246260
+CB,Matthijs de Ligt,Manchester United,85,53,Elite,235243
+CB,Micky van de Ven,Tottenham,85,51,Elite,256157
+CB,Cristian Romero,Tottenham,85,49,Elite,232432
 CB,Gleison Bremer,Juventus,85,47,Elite,239580
-CB,Emre Can,Borussia Dortmund,82,0,Mediano
-CB,David Alaba,Real Madrid,82,0,Mediano
-CB,John Stones,Manchester City,82,0,Mediano
-CB,Manuel Akanji,Lombardia FC,82,0,Mediano
-CB,Waldemar Anton,Borussia Dortmund,82,0,Mediano
-CB,Kalidou Koulibaly,Al Hilal,82,0,Mediano
-CB,Dayot Upamecano,Bayern Munich,82,0,Mediano
-CB,Danilo,Juventus,81,0,Mediano
-CB,Malick Tillman,PSV,81,0,Mediano
-CB,Sergio Gomez,Villarreal,80,0,Mediano
-CB,Lisandro Martínez,Manchester United,80,0,Mediano
+CB,Emre Can,Borussia Dortmund,82,0,Mediano,208333
+CB,David Alaba,Real Madrid,82,0,Mediano,197445
+CB,John Stones,Manchester City,82,0,Mediano,203574
+CB,Manuel Akanji,Lombardia FC,82,0,Mediano,229237
+CB,Waldemar Anton,Borussia Dortmund,82,0,Mediano,231691
+CB,Kalidou Koulibaly,Al Hilal,82,0,Mediano,201024
+CB,Dayot Upamecano,Bayern Munich,82,0,Mediano,229558
+CB,Danilo,Juventus,81,0,Mediano,199304
+CB,Malick Tillman,PSV,81,0,Mediano,257322
+CB,Sergio Gomez,Villarreal,80,0,Mediano,245367
+CB,Lisandro Martínez,Manchester United,80,0,Mediano,243051
 GK,Gianluigi Donnarumma,Manchester City,89,40,Elite,230621
 GK,Alisson,Liverpool,89,38,Elite,212831
 GK,Thibaut Courtois,Real Madrid,89,36,Elite,192119
@@ -170,18 +170,18 @@ GK,David Raya,Arsenal,87,28,Elite,220901
 GK,Mike Maignan,AC Milan,87,26,Elite,215698
 GK,Yann Sommer,Inter Milan,87,24,Elite,177683
 GK,Gregor Kobel,Borussia Dortmund,86,22,Elite,235073
-GK,Stefan Ortega,Manchester City,86,20,Elite
+GK,Stefan Ortega,Manchester City,86,20,Elite,203841
 GK,Éderson,Manchester City,86,18,Elite,210257
 GK,Marc-André ter Stegen,Barcelona,86,16,Elite,192448
 GK,Emiliano Martínez,Aston Villa,86,14,Elite,202811
-GK,Diogo Costa,FC Porto,85,12,Elite
-GK,André Onana,Manchester United,84,10,Elite
-GK,Aaron Ramsdale,Southampton,83,8,Elite
-GK,Mile Svilar,AS Roma,82,0,Mediano
-GK,Gerónimo Rulli,OM,82,0,Mediano
-GK,Guglielmo Vicario,Spurs,82,0,Mediano
-GK,Rui Silva,Al-Ain,81,0,Mediano
+GK,Diogo Costa,FC Porto,85,12,Elite,241671
+GK,André Onana,Manchester United,84,10,Elite,226753
+GK,Aaron Ramsdale,Southampton,83,8,Elite,235569
+GK,Mile Svilar,AS Roma,82,0,Mediano,224168
+GK,Gerónimo Rulli,OM,82,0,Mediano,214583
+GK,Guglielmo Vicario,Spurs,82,0,Mediano,228698
+GK,Rui Silva,Al-Ain,81,0,Mediano,212822
 GK,De Gea,Fiorentina,85,0,Mediano,193080
-GK,Diego Conde,Villarreal,80,0,Mediano
-GK,Sergio Herrera,Osasuna,79,0,Mediano
-GK,Matej Kovar,Manchester United,78,0,Mediano
+GK,Diego Conde,Villarreal,80,0,Mediano,225881
+GK,Sergio Herrera,Osasuna,79,0,Mediano,214979
+GK,Matej Kovar,Manchester United,78,0,Mediano,240726

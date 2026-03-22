@@ -6,12 +6,14 @@ export interface Player {
   minPrice: number;
   type: 'Elite' | 'Mediano';
   eaId?: string;
+  avatarUrl?: string;
 }
 
 export interface Team {
   id: string;
   name: string;
   color: string;
+  ownerPhoto?: string;
   budget: number;
   initialBudget: number;
   players: PlayerAssignment[];
