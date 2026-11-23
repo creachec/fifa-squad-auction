@@ -1,73 +1,33 @@
-# Welcome to your Lovable project
+# FIFA Squad Auction
 
-## Project info
+Monte elencos do EA Sports FC com seus amigos em um leilão de jogadores. Cada clube começa com um orçamento, disputa os atletas de cada posição e acompanha quanto ainda pode gastar.
 
-**URL**: https://lovable.dev/projects/4db5abc4-6d4d-4780-bb4b-64db2c6e5dcb
+## Como funciona
 
-## How can I edit this code?
+1. Cadastre pelo menos dois clubes e defina o nome, a cor e o orçamento inicial de cada um.
+2. Registre os lances pelos jogadores da categoria **Elite**. O painel mostra o lance mínimo, o saldo dos clubes e o histórico das arrematações.
+3. Encerre o leilão para distribuir jogadores da categoria **Mediano**. O sorteio tenta preencher as vagas de titulares e reservas com os atletas disponíveis.
+4. Consulte as formações e os gastos de cada clube no relatório final. Use **Exportar PDF** para baixar os resultados.
 
-There are several ways of editing your application.
+A base de jogadores inclui nome, posição e nota geral. A interface permite editar o catálogo durante a sessão.
 
-**Use Lovable**
+## Como rodar localmente
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/4db5abc4-6d4d-4780-bb4b-64db2c6e5dcb) and start prompting.
+Você precisa de Node.js 22 ou superior e npm.
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+git clone https://github.com/creachec/fifa-squad-auction.git
+cd fifa-squad-auction
+npm ci
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Abra [http://127.0.0.1:8080](http://127.0.0.1:8080). Para gerar o build web, use `npm run build`. Para abrir uma prévia do build, use `npm run preview`.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Dados e salvamento
 
-**Use GitHub Codespaces**
+O catálogo inicial vem de [`src/data/players.csv`](src/data/players.csv). O salvamento e a retomada de elencos usam o Supabase.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Para usar seu próprio banco, aplique as [migrações](supabase/migrations) no seu projeto Supabase e configure a URL e a chave publicável em [`src/integrations/supabase/client.ts`](src/integrations/supabase/client.ts). A migração atual permite operações anônimas no histórico de leilões.
 
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/4db5abc4-6d4d-4780-bb4b-64db2c6e5dcb) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+O app web usa React, TypeScript, Vite, Tailwind CSS e shadcn/ui. O projeto também inclui a configuração do Capacitor para [Android](android).
